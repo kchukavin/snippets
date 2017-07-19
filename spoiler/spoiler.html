@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.b-spoiler__link {
+	cursor: pointer;
+}
+.b-spoiler__link:after {
+    font-family: 'Glyphicons Halflings';
+    font-size: 60%;
+    content: "\e252";
+}
+.b-spoiler_opened .b-spoiler__link:after {
+	content: "\e253";
+}
+.b-spoiler__body {
+	display: none;
+}
+.b-spoiler_fixedwidth .b-spoiler__link {
+	position: relative;
+}
+.b-spoiler_fixedwidth .b-spoiler__link:after {
+	position: absolute;
+	top: 6px;
+	right: 2px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+	<span class="b-spoiler__link">Заголовок спойлера</span>
+	<div class="b-spoiler__body">
+	Скрытый контент
+	</div>
+
+	
+	
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+// SPOILER
+$('.b-spoiler__body').hide(0);
+$('.b-spoiler__link').on('click', function(e){
+	e.preventDefault();
+	$(this).parent('.b-spoiler').toggleClass('b-spoiler_opened');
+	$(this).next('.b-spoiler__body').slideToggle(400);
+});
+// /SPOILER
+</script>
+	
+</body>
+</html>
